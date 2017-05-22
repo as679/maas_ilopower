@@ -1,0 +1,19 @@
+--- provisioningserver/power.src/schema.py	2017-03-23 12:22:35.000000000 +0000
++++ provisioningserver/power/schema.py	2017-05-21 11:44:15.980752140 +0000
+@@ -460,6 +460,16 @@
+             make_json_field('os_authurl', "Auth URL", required=True),
+         ],
+     },
++    {
++        'name': 'hpilo',
++        'description': 'HP iLo',
++        'fields': [
++            make_json_field('power_address', "IP address", required=True),
++            make_json_field('power_user', "Power user"),
++            make_json_field('power_pass', "Power password", field_type='password'),
++        ],
++        'ip_extractor': make_ip_extractor('power_address'),
++    },
+ ]
+ 
+ POWER_TYPE_PARAMETERS_BY_NAME = {

@@ -1,0 +1,18 @@
+--- provisioningserver/drivers/power.src/__init__.py	2017-03-23 12:22:35.000000000 +0000
++++ provisioningserver/drivers/power/__init__.py	2017-05-21 10:04:43.308403142 +0000
+@@ -353,6 +353,7 @@
+ from provisioningserver.drivers.power.virsh import VirshPowerDriver
+ from provisioningserver.drivers.power.vmware import VMwarePowerDriver
+ from provisioningserver.drivers.power.nova import NovaPowerDriver
++from provisioningserver.drivers.power.hpilo import HPiloPowerDriver
+ 
+ power_drivers = [
+     AMTPowerDriver(),
+@@ -371,6 +372,7 @@
+     VirshPowerDriver(),
+     VMwarePowerDriver(),
+     NovaPowerDriver(),
++    HPiloPowerDriver(),
+ ]
+ for driver in power_drivers:
+     PowerDriverRegistry.register_item(driver.name, driver)
